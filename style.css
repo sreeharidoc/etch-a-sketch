@@ -2,11 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px;
 }
 
 .container .first-children{
     width: 80px;
     height: 80px;
-    border: 2px solid blue;
+    border: 1px solid black;
     padding: 1px;
 }
+
+
+
