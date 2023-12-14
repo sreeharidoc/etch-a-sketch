@@ -3,46 +3,39 @@ const body = document.querySelector("body")
 const container = document.createElement("div")
 container.classList.add("container")
 
-const div1 = document.createElement("div")
-div1.classList.add("first-children")
+const parent = document.createElement("div")
+parent.classList.add("parent")
+parent.style.width = "500px";
+parent.style.height = "500px";
 
-const div2 = document.createElement("div")
-div2.classList.add("first-children")
+var rows = 5
 
-const div3 = document.createElement("div")
-div3.classList.add("first-children")
+var boxWidth = 500/rows  + "px"
+var boxHeight = 500/rows  + "px"
 
-const div4 = document.createElement("div")
-div4.classList.add("first-children")
+console.log(boxHeight)
+console.log(boxWidth)
 
-const div5 = document.createElement("div")
-div5.classList.add("first-children")
+function createDiv(){
+    for (let i=0;i<rows*rows;i++){
+        const seperations = document.createElement("div")
+        seperations.classList.add("first-children")
 
-// function changeColor(color){
-//     div1.style.background = color
-// }
+        seperations.style.width = boxWidth
+        seperations.style.height = boxHeight
 
-// div1.addEventListener("mouseover",() => {
-//     changeColor("blue")
-// })
+        parent.append(seperations)
+    }
+}
 
-// div1.addEventListener("mouseout",() =>{
-//     changeColor("white")
-// })
-
-
-
-container.appendChild(div1)
-container.appendChild(div2)
-container.appendChild(div3)
-container.appendChild(div4)
-container.appendChild(div5)
+createDiv(5)
+container.appendChild(parent)
 body.appendChild(container)
 
 var divisions = document.querySelectorAll(".first-children")
 
 divisions.forEach(function(element){
     element.addEventListener("mouseover",()=>{
-        element.style.background = "blue"
+        element.style.background = "black"
     })
 })

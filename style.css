@@ -1,16 +1,18 @@
 .container{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
     padding: 50px;
+    align-items: center;  
+    justify-content: center;  
 }
 
-.container .first-children{
-    width: 80px;
-    height: 80px;
-    border: 1px solid black;
-    padding: 1px;
+.parent{
+    border: 5px solid red;
+    display: flex;
+    flex-wrap: wrap;
 }
+
 
 
 
