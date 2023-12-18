@@ -19,7 +19,7 @@ body {
 
 .second{
     display: flex;
-    gap: 175px;
+    gap: 50px;
     justify-content: center;
     align-items: center;
 
@@ -38,10 +38,11 @@ body {
     border: 5px solid red;
     display: flex;
     flex-wrap: wrap;
+    background-color: #fff;
 }
 
 /* CSS */
-.sizeButton, .colorButton{
+.sizeButton, .colorButton, .rainbowButton{
   align-items: center;
   appearance: none;
   background-color: #fff;
@@ -75,12 +76,12 @@ body {
   z-index: 0;
 }
 
-.sizeButton:hover, .colorButton:hover {
+.sizeButton:hover, .colorButton:hover, .rainbowButton:hover {
   background: #F6F9FE;
   color: #174ea6;
 }
 
-.sizeButton:active, .colorButton:active {
+.sizeButton:active, .colorButton:active, .rainbowButton:active {
   box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
   outline: none;
 }

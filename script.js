@@ -24,6 +24,11 @@ colorButton.classList.add("colorButton")
 colorButton.textContent = "color"
 second.appendChild(colorButton)
 
+const rainbowButton = document.createElement("button")
+rainbowButton.classList.add("rainbowButton")
+rainbowButton.textContent = "rainbow"
+second.appendChild(rainbowButton)
+
 const parentDiv = document.createElement("div")
 parentDiv.classList.add("parent")
 parentDiv.style.width = "600px";
@@ -70,6 +75,32 @@ sizeButton.addEventListener("click", () =>{
 
 colorButton.addEventListener("click", () =>{
     colorChoice = prompt("Enter the color: ")
+
+    var divisions = document.querySelectorAll(".first-children")
+
+    divisions.forEach(function(element){
+        element.addEventListener("mouseover",()=>{
+            element.style.background = colorChoice
+    })
+})
+    
+})
+
+rainbowButton.addEventListener("click", () =>{
+    var divisions = document.querySelectorAll(".first-children")
+
+    divisions.forEach(function(element){
+        element.addEventListener("mouseover",()=>{
+            const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+            const r = randomBetween(0, 255);
+            const g = randomBetween(0, 255);
+            const b = randomBetween(0, 255);
+            colorChoice = `rgb(${r},${g},${b})`; 
+            element.style.background = colorChoice
+    })
+})
+    
+    
 })
 
 var divisions = document.querySelectorAll(".first-children")
