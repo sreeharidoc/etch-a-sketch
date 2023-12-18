@@ -3,39 +3,79 @@ const body = document.querySelector("body")
 const container = document.createElement("div")
 container.classList.add("container")
 
-const parent = document.createElement("div")
-parent.classList.add("parent")
-parent.style.width = "500px";
-parent.style.height = "500px";
+const header = document.createElement("div")
+header.classList.add("header")
 
-var rows = 5
+const heading = document.createElement("h1")
+heading.classList.add("heading")
+heading.textContent = "Etch-A-Sketch"
+header.appendChild(heading)
 
-var boxWidth = 500/rows  + "px"
-var boxHeight = 500/rows  + "px"
+const second = document.createElement("div")
+second.classList.add("second")
 
-console.log(boxHeight)
-console.log(boxWidth)
+const sizeButton = document.createElement("button")
+sizeButton.classList.add("sizeButton")
+sizeButton.textContent = "size"
+second.appendChild(sizeButton)
 
-function createDiv(){
+const colorButton = document.createElement("button")
+colorButton.classList.add("colorButton")
+colorButton.textContent = "color"
+second.appendChild(colorButton)
+
+const parentDiv = document.createElement("div")
+parentDiv.classList.add("parent")
+parentDiv.style.width = "600px";
+parentDiv.style.height = "600px";
+
+
+function createDiv(rows){
     for (let i=0;i<rows*rows;i++){
         const seperations = document.createElement("div")
         seperations.classList.add("first-children")
 
+        var boxWidth = Math.floor(600/rows)  + "px"
+        var boxHeight = Math.floor(600/rows)  + "px"
+
         seperations.style.width = boxWidth
         seperations.style.height = boxHeight
 
-        parent.append(seperations)
+        parentDiv.append(seperations)
     }
 }
 
-createDiv(5)
-container.appendChild(parent)
+createDiv(10)
+body.appendChild(header)
+body.appendChild(second)
+container.appendChild(parentDiv)
 body.appendChild(container)
+
+var colorChoice = "blue"
+
+
+sizeButton.addEventListener("click", () =>{
+    var userChoice = prompt("Enter the size: ")
+    parentDiv.innerHTML = ""
+    createDiv(userChoice)
+
+    var divisions = document.querySelectorAll(".first-children")
+
+    divisions.forEach(function(element){
+        element.addEventListener("mouseover",()=>{
+            element.style.background = colorChoice
+    })
+})
+})
+
+colorButton.addEventListener("click", () =>{
+    colorChoice = prompt("Enter the color: ")
+})
 
 var divisions = document.querySelectorAll(".first-children")
 
 divisions.forEach(function(element){
     element.addEventListener("mouseover",()=>{
-        element.style.background = "black"
+        element.style.background = colorChoice
     })
 })
