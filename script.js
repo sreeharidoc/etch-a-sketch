@@ -74,7 +74,7 @@ sizeButton.addEventListener("click", () =>{
 })
 
 colorButton.addEventListener("click", () =>{
-    colorChoice = prompt("Enter the color: ")
+    let colorChoice = prompt("Enter the color: ")
 
     var divisions = document.querySelectorAll(".first-children")
 
@@ -95,7 +95,7 @@ rainbowButton.addEventListener("click", () =>{
             const r = randomBetween(0, 255);
             const g = randomBetween(0, 255);
             const b = randomBetween(0, 255);
-            colorChoice = `rgb(${r},${g},${b})`; 
+            let colorChoice = `rgb(${r},${g},${b})`; 
             element.style.background = colorChoice
     })
 })
